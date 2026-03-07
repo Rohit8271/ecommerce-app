@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: delighter-backend
+    env: node
+    region: singapore
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false          # Set this in Render dashboard
+      - key: JWT_SECRET
+        sync: false          # Set this in Render dashboard
+      - key: STRIPE_SECRET_KEY
+        sync: false          # Set this in Render dashboard
+    healthCheckPath: /api/products

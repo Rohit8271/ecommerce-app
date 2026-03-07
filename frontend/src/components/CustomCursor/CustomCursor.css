@@ -1,0 +1,82 @@
+/* Global override to hide default cursor, but keep it on touch screens */
+@media (pointer: fine) {
+
+    *,
+    *::before,
+    *::after {
+        cursor: none !important;
+    }
+}
+
+.custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), margin 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, background-color 0.3s ease;
+    will-change: transform;
+}
+
+.custom-cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    background: radial-gradient(circle, rgba(var(--color-primary-rgb, 79, 70, 229), 0.4) 0%, rgba(var(--color-primary-rgb, 79, 70, 229), 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1), margin 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, border 0.4s ease, background 0.4s ease, backdrop-filter 0.4s ease;
+    will-change: transform, width, height;
+}
+
+/* Hover States (Over Links/Buttons) */
+.custom-cursor-dot.hover {
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    background-color: var(--color-accent-pink);
+    mix-blend-mode: normal;
+}
+
+.custom-cursor-glow.hover {
+    width: 80px;
+    height: 80px;
+    margin: -40px 0 0 -40px;
+    background: rgba(var(--color-bg-card-rgb, 255, 255, 255), 0.1);
+    border: 1px solid var(--color-primary);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 0 20px rgba(var(--color-primary-rgb, 79, 70, 229), 0.3);
+}
+
+/* Clicking States */
+.custom-cursor-dot.clicking {
+    width: 3px;
+    height: 3px;
+    margin: -1.5px 0 0 -1.5px;
+}
+
+.custom-cursor-glow.clicking {
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    background: radial-gradient(circle, rgba(var(--color-accent-pink-rgb, 254, 205, 211), 0.8) 0%, rgba(var(--color-accent-pink-rgb, 254, 205, 211), 0) 70%);
+    border-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.custom-cursor-glow.clicking.hover {
+    transform: scale(0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}

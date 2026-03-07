@@ -1,0 +1,82 @@
+/* ── Dual-range slider thumb styling ─────────────────────────── */
+input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    background: transparent;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-primary, #0ea5e9);
+    border: 2px solid white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    cursor: grab;
+    transition: transform 0.1s;
+    margin-top: -7px;
+    pointer-events: all;
+}
+
+input[type='range']::-webkit-slider-thumb:active {
+    cursor: grabbing;
+    transform: scale(1.2);
+}
+
+input[type='range']::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-primary, #0ea5e9);
+    border: 2px solid white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    cursor: grab;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    height: 4px;
+    background: transparent;
+    border-radius: 2px;
+}
+
+input[type='range']::-moz-range-track {
+    height: 4px;
+    background: transparent;
+}
+
+/* ── Filter toggle button ─────────────────────────────────────── */
+.filter-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-card);
+    color: var(--color-text-main);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.filter-toggle-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* ── Responsive sidebar ───────────────────────────────────────── */
+@media (max-width: 768px) {
+    .shop-page-wrapper>div {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100% !important;
+        position: static !important;
+        max-height: none !important;
+    }
+}
