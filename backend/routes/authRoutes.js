@@ -1,11 +1,12 @@
 import express from 'express';
-import { registerUser, authUser, getUsers, deleteUser, getUserById, getUserProfile, updateUserProfile } from '../controllers/authController.js';
+import { registerUser, authUser, googleLogin, getUsers, deleteUser, getUserById, getUserProfile, updateUserProfile } from '../controllers/authController.js';
 import { protect, admin } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
 router.route('/').post(registerUser).get(protect, admin, getUsers);
 router.post('/login', authUser);
+router.post('/google', googleLogin);
 
 // Profile routes MUST go before /:id routes so 'profile' isn't parsed as an ID
 router.route('/profile')
