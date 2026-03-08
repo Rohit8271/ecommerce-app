@@ -27,6 +27,8 @@ const allowedOrigins = [
     'http://localhost:5173',
     'https://delighter.web.app',
     'https://delighter.firebaseapp.com',
+    'https://shop-delighted.web.app',
+    'https://shop-delighted.firebaseapp.com',
     // Add your custom domain here if you have one, e.g. 'https://www.delighter.in'
 ];
 app.use(cors({

@@ -153,7 +153,7 @@ const Products = ({ isShopPage = false, initialCategory = null, initialSearch = 
                                             />
                                         ))}
                                     </div>
-                                    <span className="reviews-count">({product.reviews})</span>
+                                    <span className="reviews-count">({product.numReviews || 0})</span>
                                 </div>
 
                                 <div className="product-price-row">
